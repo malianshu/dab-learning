@@ -1,0 +1,27 @@
+bundle:
+  name: dab-learning
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    description: Unity Catalog catalog name
+    default: workspace
+  schema:
+    description: Schema for ML assets
+    default: ml_dev
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-808c497f-6e22.cloud.databricks.com/
+
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-808c497f-6e22.cloud.databricks.com/
+    variables:
+      schema: ml_prod

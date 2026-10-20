@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [dev, main]
+
+jobs:
+  validate:
+    name: Validate bundle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: databricks/setup-cli@main
+
+      - name: Validate dev target
+        run: databricks bundle validate -t dev
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+
+      - name: Validate prod target
+        run: databricks bundle validate -t prod
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}

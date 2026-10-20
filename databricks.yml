@@ -17,11 +17,11 @@ targets:
     mode: development
     default: true
     workspace:
-      host: https://dbc-808c497f-6e22.cloud.databricks.com/
+      host: https://dbc-808c497f-6e22.cloud.databricks.com
 
   prod:
     mode: production
     workspace:
-      host: https://dbc-808c497f-6e22.cloud.databricks.com/
+      host: https://dbc-808c497f-6e22.cloud.databricks.com
     variables:
       schema: ml_prod

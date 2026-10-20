@@ -23,5 +23,6 @@ targets:
     mode: production
     workspace:
       host: https://dbc-808c497f-6e22.cloud.databricks.com
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
     variables:
       schema: ml_prod
